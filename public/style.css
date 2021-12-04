@@ -342,7 +342,7 @@ strong {
 		url(img/heroine.png);
 
 	background-repeat: no-repeat;
-	background-position: bottom;
+	background-position-y: 180%;
 	background-position-x: 70%;
 	background-size: cover;
 	padding: 8em 0 4em;
@@ -361,7 +361,7 @@ strong {
 
 @media (min-width: 670px) {
 	.hero {
-		padding: 10em 0 6em;
+		padding: 10em 0 20em;
 		background-image: linear-gradient(
 				90deg,
 				rgba(255, 255, 255, 1) 40%,
