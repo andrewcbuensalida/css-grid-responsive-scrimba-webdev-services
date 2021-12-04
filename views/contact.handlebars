@@ -2,8 +2,7 @@
 <main class="main-template main-grid">
 	<h1 class="page-title">Contact.</h1>
 	<p class="subtitle">
-		Let us know how we can help you need and we’ll drive over to your place
-		in our Bluesmobile the following day to discuss the deal.
+		Let us know how we can help you need and I'll respond as soon as I can to discuss the deal.
 	</p>
 
 	<img class="main-image" src="./img/contact.jpg" alt="a bunch of mailboxes" />
@@ -16,15 +15,15 @@
 	</div>
 
 	<div class="main-text">
-		<form class="contact-form" action="#" method="POST">
+		<form class="contact-form" action="https://formsubmit.co/bc620245911c8b67b1bb8a96f7a1affc" method="POST">
 			<label class="fname-label" for="fname">First Name</label>
-			<input class="fname-input" id="fname" type="text" />
+			<input class="fname-input" id="fname" type="text" name='name' required/>
 
-			<label class="lname-label" for="lname">Last Name</label>
-			<input class="lname-input" id="lname" type="text" />
+			<label class="lname-label" for="lname">Email</label>
+			<input class="lname-input" id="lname" type="email" name='email' required/>
 
 			<label class="message-label" for="message">Message</label>
-			<textarea class="message-textarea" id="message"></textarea>
+			<textarea class="message-textarea" id="message" name='message' required></textarea>
 
 			<button class="btn btn-primary btn-form">send</button>
 		</form>

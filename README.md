@@ -86,3 +86,8 @@ there's at least 2 ways of sending data from node to javascript.
    then in client
    let decodedJson = decodeURIComponent('{{{encodedJson}}}');
    let jsonObj = JSON.parse(decodedJson)
+
+form submission email ================================
+https://www.youtube.com/watch?v=r4RQ38EoLds&t=23s
+super easy. just copy paste from formsubmit.co into the form, make sure to have name attributes in the inputs, the first email is for activation, theyll also send you an encrypted key to replace your exposed email. they even have anti-spam validation. can also redirect to a thank you page.
+the other way is via nodemailer with nodejs.
