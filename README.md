@@ -76,3 +76,13 @@ workflow is since it's gcp compute engine, it requires docker to auto deploy. ri
 trying without node. it works, but i forgot that we're getting the articles dynamically, even if it's hard coded. so have to switch back to serving with node. could do without node if there are no secret key apis that node needs to fetch. server { server_name flex.anhonestobserver.com www.flex.anhonestobserver.com; root /home/andrewcbuensalida_gmail_com/flex/client/public;; index index.html index.htm index.nginx-debian.html; location / { try_files $uri /index.html; }
 
 }
+
+sending data from node to javascript =================================
+there's at least 2 ways of sending data from node to javascript.
+
+1. res.render("index", { data: JSON.stringify({ title: "home" }) });
+   then in client console.log({{{data}}})
+2. res.render('index', { encodedJson: encodeURIComponent(JSON.stringify(data))});
+   then in client
+   let decodedJson = decodeURIComponent('{{{encodedJson}}}');
+   let jsonObj = JSON.parse(decodedJson)

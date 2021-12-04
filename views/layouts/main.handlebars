@@ -6,7 +6,7 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
 		/>
-		<title>Jake & Elwood</title>
+		<title>{{page}} - Andrew's Web Dev Services</title>
 		<!-- viewport meta to render pages on mobile properly -->
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -23,7 +23,12 @@
 		/>
 
 		<!-- link to my CSS -->
-		<link href="../../css/style.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />		<!-- this is for auto reload during development. wont work if changing a file that jquery is loading-->
+		<script
+			type="text/javascript"
+			src="https://livejs.com/live.js"
+		></script>
+
 	</head>
 	<body>
 		{{{body}}}
