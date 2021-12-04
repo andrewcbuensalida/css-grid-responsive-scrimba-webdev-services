@@ -55,9 +55,8 @@ textareas need a closing tag. and can expand. it's not input tag. textareas can 
 
 i kind of llike flexbox better than grid.
 
-deploy simple life website flex, barbeque signup flex, 7 tech tips flex version, jake elwood grid.
-
-dynamically rendering ========================================== ways: ssr like handlebars, ejs react innerHtml injection from javascript element creation with javascript conditional rendering with template tags jquery load from a different html file
+dynamically rendering ==========================================
+ways: ssr like handlebars, ejs react innerHtml injection from javascript element creation with javascript conditional rendering with template tags jquery load from a different html file
 
 deploying ======================================================================== aws route 53, hosted zone anhonestobserver.com create record flex.anhonestobserver.com A record with value 34.102.120.157 which i got from compute engine up address sudo nano /etc/nginx/sites-available/flex.anhonestobserver.com.conf server { listen 80; server_name flex.anhonestobserver.com www.flex.anhonestobserver.com;
 
@@ -72,10 +71,6 @@ proxy_cache_bypass $http_upgrade;
 } sudo ln -s /etc/nginx/sites-available/flex.anhonestobserver.com.conf /etc/nginx/sites-enabled/ sudo systemctl reload nginx to get ssl aka https: sudo certbot --nginx pm2 start server.js --watch --name flex watch is so it reloads when files change, aka git pull. pm2 start server.js --watch --name flex to auto restart pm2 on compute engine reboot, if you havent already, pm2 startup if you have already, just pm2 save ss -tnlp | grep "node /" to see what ports pm2 processes are running on. to check logs , pm2 logs flex --timestamp
 
 workflow is since it's gcp compute engine, it requires docker to auto deploy. right now i dont have that. so just push to github. then pull from compute engine.
-
-trying without node. it works, but i forgot that we're getting the articles dynamically, even if it's hard coded. so have to switch back to serving with node. could do without node if there are no secret key apis that node needs to fetch. server { server_name flex.anhonestobserver.com www.flex.anhonestobserver.com; root /home/andrewcbuensalida_gmail_com/flex/client/public;; index index.html index.htm index.nginx-debian.html; location / { try_files $uri /index.html; }
-
-}
 
 sending data from node to javascript =================================
 there's at least 2 ways of sending data from node to javascript.
