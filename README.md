@@ -58,17 +58,42 @@ i kind of llike flexbox better than grid.
 dynamically rendering ==========================================
 ways: ssr like handlebars, ejs react innerHtml injection from javascript element creation with javascript conditional rendering with template tags jquery load from a different html file
 
-deploying ======================================================================== aws route 53, hosted zone anhonestobserver.com create record flex.anhonestobserver.com A record with value 34.102.120.157 which i got from compute engine up address sudo nano /etc/nginx/sites-available/flex.anhonestobserver.com.conf server { listen 80; server_name flex.anhonestobserver.com www.flex.anhonestobserver.com;
+deploying ======================================================================== aws route 53, hosted zone anhonestobserver.com create record www. and naked webdev.anhonestobserver.com A record with value 34.102.120.157 which i got from compute engine up address sudo nano /etc/nginx/sites-available/webdev.anhonestobserver.com.conf 
+server { 
+   listen 80; 
+   server_name webdev.anhonestobserver.com www.webdev.anhonestobserver.com;
 
-location / {
-proxy_pass http://localhost:3100/;
-proxy_http_version 1.1;
-proxy_set_header Upgrade $http_upgrade;
-proxy_set_header Connection 'upgrade';
-proxy_set_header Host $host;
-proxy_cache_bypass $http_upgrade;
-}
-} sudo ln -s /etc/nginx/sites-available/flex.anhonestobserver.com.conf /etc/nginx/sites-enabled/ sudo systemctl reload nginx to get ssl aka https: sudo certbot --nginx pm2 start server.js --watch --name flex watch is so it reloads when files change, aka git pull. pm2 start server.js --watch --name flex to auto restart pm2 on compute engine reboot, if you havent already, pm2 startup if you have already, just pm2 save ss -tnlp | grep "node /" to see what ports pm2 processes are running on. to check logs , pm2 logs flex --timestamp
+   location / {
+      proxy_pass http://localhost:3200/;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection 'upgrade';
+      proxy_set_header Host $host;
+      proxy_cache_bypass $http_upgrade;
+   }
+} 
+sudo ln -s /etc/nginx/sites-available/webdev.anhonestobserver.com.conf /etc/nginx/sites-enabled/ 
+sudo systemctl reload nginx 
+to get ssl aka https:
+ sudo certbot --nginx 
+to get url of git repo, 
+git config --get remote.origin.url
+then
+ git clone <url of git repo>
+ rename folder with 
+ mv <folder> webdev
+ cd into folder with server.js
+ npm i 
+ pm2 start server.js --watch --name webdev 
+watch is so it reloads when files change, aka git pull.
+ to auto restart pm2 on compute engine reboot, if you havent already, 
+ pm2 startup
+  if you have already, just 
+  pm2 save
+   to see what ports pm2 processes are running on.
+ss -tnlp | grep "node /" 
+       to check logs, 
+pm2 logs flex --timestamp
 
 workflow is since it's gcp compute engine, it requires docker to auto deploy. right now i dont have that. so just push to github. then pull from compute engine.
 
