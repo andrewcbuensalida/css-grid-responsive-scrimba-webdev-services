@@ -1,0 +1,19 @@
+{
+  "name": "css-grid-responsive-scrimba-webdev-services",
+  "version": "1.0.0",
+  "description": "CSS RESPONSIVE DESIGN:====================================================== laptop widths are 1200px, heights are 700px. large mobile is 400px, height 800px inline elements are not affected by width and height, slightly with padding, horizontally with margin. if you want it to be affected, should be inline-block. put google fonts link including preload before the css link",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^6.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
