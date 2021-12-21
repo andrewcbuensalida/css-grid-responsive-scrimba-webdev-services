@@ -342,7 +342,8 @@ strong {
 		url(img/heroine.png);
 
 	background-repeat: no-repeat;
-	background-position-y: 180%;
+	background-position-y: 60%;
+
 	background-position-x: 70%;
 	background-size: cover;
 	padding: 8em 0 4em;
